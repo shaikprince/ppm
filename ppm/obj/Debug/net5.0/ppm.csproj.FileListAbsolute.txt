@@ -14,3 +14,10 @@ D:\ppm\ppm\ppm\obj\Debug\net5.0\ref\ppm.dll
 D:\ppm\ppm\ppm\obj\Debug\net5.0\ppm.pdb
 D:\ppm\ppm\ppm\obj\Debug\net5.0\ppm.genruntimeconfig.cache
 D:\ppm\ppm\ppm\obj\Debug\net5.0\ppm.csproj.AssemblyReference.cache
+D:\ppm\ppm\ppm\bin\Debug\net5.0\Model.dll
+D:\ppm\ppm\ppm\bin\Debug\net5.0\Model.pdb
+D:\ppm\ppm\ppm\obj\Debug\net5.0\ppm.csproj.CopyComplete
+D:\ppm\ppm\ppm\bin\Debug\net5.0\Domain.dll
+D:\ppm\ppm\ppm\bin\Debug\net5.0\ppm- console.dll
+D:\ppm\ppm\ppm\bin\Debug\net5.0\ppm- console.pdb
+D:\ppm\ppm\ppm\bin\Debug\net5.0\Domain.pdb

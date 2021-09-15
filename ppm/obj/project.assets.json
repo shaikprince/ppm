@@ -1,11 +1,68 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {}
+    "net5.0": {
+      "Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Domain.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
+        }
+      },
+      "ppm- console/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ppm- console.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ppm- console.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Domain/1.0.0": {
+      "type": "project",
+      "path": "../Domain/Domain.csproj",
+      "msbuildProject": "../Domain/Domain.csproj"
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
+    },
+    "ppm- console/1.0.0": {
+      "type": "project",
+      "path": "../ppm- console/ppm- console.csproj",
+      "msbuildProject": "../ppm- console/ppm- console.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net5.0": []
+    "net5.0": [
+      "Model >= 1.0.0",
+      "ppm- console >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\EBRAHIM\\.nuget\\packages\\": {}
@@ -33,7 +90,14 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\ppm\\ppm\\Model\\Model.csproj": {
+              "projectPath": "D:\\ppm\\ppm\\Model\\Model.csproj"
+            },
+            "D:\\ppm\\ppm\\ppm- console\\ppm- console.csproj": {
+              "projectPath": "D:\\ppm\\ppm\\ppm- console\\ppm- console.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

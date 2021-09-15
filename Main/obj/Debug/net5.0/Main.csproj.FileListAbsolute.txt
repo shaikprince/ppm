@@ -1,0 +1,16 @@
+D:\ppm\ppm\Main\bin\Debug\net5.0\Main.exe
+D:\ppm\ppm\Main\bin\Debug\net5.0\Main.deps.json
+D:\ppm\ppm\Main\bin\Debug\net5.0\Main.runtimeconfig.json
+D:\ppm\ppm\Main\bin\Debug\net5.0\Main.runtimeconfig.dev.json
+D:\ppm\ppm\Main\bin\Debug\net5.0\Main.dll
+D:\ppm\ppm\Main\bin\Debug\net5.0\ref\Main.dll
+D:\ppm\ppm\Main\bin\Debug\net5.0\Main.pdb
+D:\ppm\ppm\Main\obj\Debug\net5.0\Main.csproj.AssemblyReference.cache
+D:\ppm\ppm\Main\obj\Debug\net5.0\Main.GeneratedMSBuildEditorConfig.editorconfig
+D:\ppm\ppm\Main\obj\Debug\net5.0\Main.AssemblyInfoInputs.cache
+D:\ppm\ppm\Main\obj\Debug\net5.0\Main.AssemblyInfo.cs
+D:\ppm\ppm\Main\obj\Debug\net5.0\Main.csproj.CoreCompileInputs.cache
+D:\ppm\ppm\Main\obj\Debug\net5.0\Main.dll
+D:\ppm\ppm\Main\obj\Debug\net5.0\ref\Main.dll
+D:\ppm\ppm\Main\obj\Debug\net5.0\Main.pdb
+D:\ppm\ppm\Main\obj\Debug\net5.0\Main.genruntimeconfig.cache

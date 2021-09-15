@@ -7,14 +7,54 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "ppm/1.0.0": {
+        "dependencies": {
+          "Model": "1.0.0"
+        },
         "runtime": {
           "ppm.dll": {}
+        }
+      },
+      "Domain/1.0.0": {
+        "dependencies": {
+          "Model": "1.0.0"
+        },
+        "runtime": {
+          "Domain.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "runtime": {
+          "Model.dll": {}
+        }
+      },
+      "ppm- console/1.0.0": {
+        "dependencies": {
+          "Domain": "1.0.0",
+          "Model": "1.0.0"
+        },
+        "runtime": {
+          "ppm- console.dll": {}
         }
       }
     }
   },
   "libraries": {
     "ppm/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ppm- console/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -1,0 +1,17 @@
+D:\ppm\ppm\ppm- console\obj\Debug\net5.0\ppm- console.csproj.AssemblyReference.cache
+D:\ppm\ppm\ppm- console\obj\Debug\net5.0\ppm- console.GeneratedMSBuildEditorConfig.editorconfig
+D:\ppm\ppm\ppm- console\obj\Debug\net5.0\ppm- console.AssemblyInfoInputs.cache
+D:\ppm\ppm\ppm- console\obj\Debug\net5.0\ppm- console.AssemblyInfo.cs
+D:\ppm\ppm\ppm- console\obj\Debug\net5.0\ppm- console.csproj.CoreCompileInputs.cache
+D:\ppm\ppm\ppm- console\bin\Debug\net5.0\ppm- console.deps.json
+D:\ppm\ppm\ppm- console\bin\Debug\net5.0\ppm- console.dll
+D:\ppm\ppm\ppm- console\bin\Debug\net5.0\ref\ppm- console.dll
+D:\ppm\ppm\ppm- console\bin\Debug\net5.0\ppm- console.pdb
+D:\ppm\ppm\ppm- console\bin\Debug\net5.0\Domain.dll
+D:\ppm\ppm\ppm- console\bin\Debug\net5.0\Model.dll
+D:\ppm\ppm\ppm- console\bin\Debug\net5.0\Domain.pdb
+D:\ppm\ppm\ppm- console\bin\Debug\net5.0\Model.pdb
+D:\ppm\ppm\ppm- console\obj\Debug\net5.0\ppm- console.csproj.CopyComplete
+D:\ppm\ppm\ppm- console\obj\Debug\net5.0\ppm- console.dll
+D:\ppm\ppm\ppm- console\obj\Debug\net5.0\ref\ppm- console.dll
+D:\ppm\ppm\ppm- console\obj\Debug\net5.0\ppm- console.pdb
