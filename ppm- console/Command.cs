@@ -166,10 +166,15 @@ namespace ppm__console
         private bool AddProject()
         {
             Project project = new Project();
+            Console.WriteLine("Enter project Id");
             project.id = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter project Name");
             project.Name = Convert.ToString(Console.ReadLine());
+            Console.WriteLine("Enter project StartDate");
             project.StartDate = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("Enter project EndDate");
             project.EndDate = Convert.ToDateTime(Console.ReadLine());
+            Console.WriteLine("Enter project Budget");
             project.Budget = Convert.ToDecimal(Console.ReadLine());
 
             projectmanager p = new projectmanager();
