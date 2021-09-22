@@ -6,7 +6,9 @@ namespace ppm__console
     public class Command
     {
         public void startprogram()
+
         {
+            projectmanager pro = new projectmanager();
             Console.WriteLine("following operation");
             Console.WriteLine("1.Add project");
             Console.WriteLine("2.View project");
@@ -14,7 +16,10 @@ namespace ppm__console
             Console.WriteLine("4.View Employee");
             Console.WriteLine("5.Add Role");
             Console.WriteLine("6.View Role");
-            Console.WriteLine("7.Exit");
+            Console.WriteLine("7.Add Employee to Project");
+            Console.WriteLine("8.Delete Employee from Project");
+            Console.WriteLine("9.view project details");
+            Console.WriteLine("10.Quit");
 
             bool i = true;
             while (i)
@@ -28,7 +33,7 @@ namespace ppm__console
                         AddProject();
                         break;
                     case 2:
-                        projectmanager pro = new projectmanager();
+                       // projectmanager pro = new projectmanager();
                         var pres = pro.GetprojectInfo();
 
                         int c = 0;
@@ -100,6 +105,35 @@ namespace ppm__console
                         }
                         break;
                     case 7:
+                        Console.WriteLine("Add Employee to Project");
+                        AddEmployeetoProject();
+                        break;
+                    case 8:
+                        Console.WriteLine("Delete Employee from Project");
+                        DeleteEmployeefromProject();
+                        break;
+                    case 9:
+                        Console.WriteLine("Project Details with Employee Assigned:");
+                       
+                        var result = pro.GetprojectInfo();
+                        if (result.isSucess)
+                        {
+                            foreach (Project Result in result.Results)
+                            {
+                                Console.WriteLine("Project ID: " + Result.id + "\nProject Name: " + Result.Name + "\nStarting Date: " + Result.StartDate + "\nEndDate: " + Result.EndDate + "\nBudget: " + Result.Budget);
+                                Console.WriteLine("Employee Assigned: ");
+                                if (Result.Emplist != null)
+                                {
+                                    foreach (Employee emp in Result.Emplist)
+                                    {
+                                        Console.WriteLine("Employee Id: " + emp.Id + " " + "Employee First Name: " + emp.Name + " " + "Employee Contact: " + emp.Contact);
+                                    }
+                                }
+
+                            }
+                        }
+                        break;
+                    case 10:
                         Environment.Exit(0);
                         break;
 
@@ -113,6 +147,71 @@ namespace ppm__console
 
 
 
+        }
+
+        private static bool AddEmployeetoProject()
+        {
+            Employee emp = new Employee();
+            Console.WriteLine("Enter project id:");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter name of the Employee :");
+            emp.Name = Console.ReadLine();
+            Employeemanager employeemanager = new Employeemanager();
+            var valid = employeemanager.isvalidEmp(emp);
+            if (!valid.isSucess)
+            {
+                projectmanager projectmanager = new projectmanager();
+                var result = projectmanager.AddEmployeetoProject( emp,id);
+                if (!result.isSucess)
+                {
+                    Console.WriteLine("Employee failed to add into project");
+                    Console.WriteLine(result.status);
+                }
+                else
+                {
+                    Console.WriteLine(result.status);
+                }
+                return result.isSucess;
+            }
+            else
+            {
+                Console.WriteLine(valid.status);
+            }
+            return valid.isSucess;
+
+        }
+
+
+
+        private  static bool DeleteEmployeefromProject()
+        {
+            Employee emp = new Employee();
+            Console.WriteLine("Enter project id:");
+            int id = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter name of the Employee :");
+            emp.Name = Console.ReadLine();
+            Employeemanager employeemanager = new Employeemanager();
+            var valid = employeemanager.isvalidEmp(emp);
+            if (!valid.isSucess)
+            {
+                projectmanager projectmanager = new projectmanager();
+                var result = projectmanager.DeleteEmployeefromProject(emp, id);
+                if (!result.isSucess)
+                {
+                    Console.WriteLine("Employee failed to add into project");
+                    Console.WriteLine(result.status);
+                }
+                else
+                {
+                    Console.WriteLine(result.status);
+                }
+                return result.isSucess;
+            }
+            else
+            {
+                Console.WriteLine(valid.status);
+            }
+            return valid.isSucess;
         }
 
         private bool AddRole()
@@ -131,14 +230,14 @@ namespace ppm__console
             }
             else
             {
-               
+
             }
             return res.isSucess;
         }
-    
+
         private bool AddEmployee()
         {
-            
+
             Employee emp = new Employee();
 
             Console.WriteLine("Enter Employee Id");
@@ -161,8 +260,8 @@ namespace ppm__console
             }
             return res.isSucess;
         }
-        
-    
+
+
         private bool AddProject()
         {
             Project project = new Project();
@@ -193,8 +292,8 @@ namespace ppm__console
             return res.isSucess;
         }
     }
-    
 }
+    
 
 
         

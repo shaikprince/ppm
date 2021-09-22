@@ -70,9 +70,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ppm\\ppm\\ppm\\ppm.csproj",
-      "projectName": "ppm",
-      "projectPath": "D:\\ppm\\ppm\\ppm\\ppm.csproj",
+      "projectUniqueName": "D:\\ppm\\ppm\\ppm\\ppm-Main.csproj",
+      "projectName": "ppm-Main",
+      "projectPath": "D:\\ppm\\ppm\\ppm\\ppm-Main.csproj",
       "packagesPath": "C:\\Users\\EBRAHIM\\.nuget\\packages\\",
       "outputPath": "D:\\ppm\\ppm\\ppm\\obj\\",
       "projectStyle": "PackageReference",

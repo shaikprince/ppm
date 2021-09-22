@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PqRP9pSTSzMJuoyr7iFLmPpDROpHZdLmRIobujR8hzoU32TGufVumiNilZBs6eVfwe3Smq5/FRHnzVTQVXOpkw==",
+  "dgSpecHash": "UUI1aXFrZ/Wi8zHn7tl7BtfgKydH0ea55q6hCctNVTeUApSZ7assVPGzt4hvSacqIUQOwYN8sjPs7YWb8xPc/g==",
   "success": true,
-  "projectFilePath": "D:\\ppm\\ppm\\ppm\\ppm.csproj",
+  "projectFilePath": "D:\\ppm\\ppm\\ppm\\ppm-Main.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

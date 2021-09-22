@@ -46,9 +46,14 @@ namespace Domain
             return data;
         }
 
-        
+        public ActionResult isvalidEmp(Employee empname)
+        {
+            ActionResult result = new ActionResult() { isSucess = true };
+            return result;
+        }
     }
-}
+    }
+
 
 
 
