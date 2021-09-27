@@ -6,19 +6,16 @@ using Model.Ation;
 
 namespace Domain
 {
-    public class projectmanager
+    public class Projectmanager
     {
        
-        private static List<Project> _projectList;
-        static projectmanager()
-        {
-            _projectList = new List<Project>();
-        }
+        private static List<Project> _projectList = new List<Project>();
+        
 
        
         public ActionResult AddProject(Project pro)
         {
-            ActionResult result = new ActionResult(){ isSucess = true};
+            ActionResult result = new ActionResult() { isSucess = true };
             try
             {
                _projectList.Add(pro);
@@ -98,7 +95,7 @@ namespace Domain
 
         public ActionResult DeleteEmployeefromProject(Employee emp, int id)
         {
-            Project project = new Project();
+           
             ActionResult action = new ActionResult() { isSucess = true };
             try
             {

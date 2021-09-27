@@ -5,7 +5,7 @@ using ppm__console;
 
 namespace main_ppm
 {
-    class Program
+  static class Program
     {
         public static void Main(string[] args)
         {

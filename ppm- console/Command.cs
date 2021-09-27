@@ -8,7 +8,7 @@ namespace ppm__console
         public void startprogram()
 
         {
-            projectmanager pro = new projectmanager();
+          Projectmanager pro = new Projectmanager();
             Console.WriteLine("following operation");
             Console.WriteLine("1.Add project");
             Console.WriteLine("2.View project");
@@ -33,7 +33,7 @@ namespace ppm__console
                         AddProject();
                         break;
                     case 2:
-                       // projectmanager pro = new projectmanager();
+                      
                         var pres = pro.GetprojectInfo();
 
                         int c = 0;
@@ -149,7 +149,7 @@ namespace ppm__console
 
         }
 
-        private static bool AddEmployeetoProject()
+        private static void AddEmployeetoProject()
         {
             Employee emp = new Employee();
             Console.WriteLine("Enter project id:");
@@ -160,7 +160,7 @@ namespace ppm__console
             var valid = employeemanager.isvalidEmp(emp);
             if (!valid.isSucess)
             {
-                projectmanager projectmanager = new projectmanager();
+                Projectmanager projectmanager = new Projectmanager();
                 var result = projectmanager.AddEmployeetoProject( emp,id);
                 if (!result.isSucess)
                 {
@@ -171,19 +171,19 @@ namespace ppm__console
                 {
                     Console.WriteLine(result.status);
                 }
-                return result.isSucess;
+                
             }
             else
             {
                 Console.WriteLine(valid.status);
             }
-            return valid.isSucess;
+           
 
         }
 
 
 
-        private  static bool DeleteEmployeefromProject()
+        private  static void DeleteEmployeefromProject()
         {
             Employee emp = new Employee();
             Console.WriteLine("Enter project id:");
@@ -194,7 +194,7 @@ namespace ppm__console
             var valid = employeemanager.isvalidEmp(emp);
             if (!valid.isSucess)
             {
-                projectmanager projectmanager = new projectmanager();
+                Projectmanager projectmanager = new Projectmanager();
                 var result = projectmanager.DeleteEmployeefromProject(emp, id);
                 if (!result.isSucess)
                 {
@@ -205,16 +205,16 @@ namespace ppm__console
                 {
                     Console.WriteLine(result.status);
                 }
-                return result.isSucess;
+                
             }
             else
             {
                 Console.WriteLine(valid.status);
             }
-            return valid.isSucess;
+           
         }
 
-        private bool AddRole()
+        private void AddRole()
         {
             Role rol = new Role();
 
@@ -230,12 +230,12 @@ namespace ppm__console
             }
             else
             {
-
+                Console.WriteLine(res.status);
             }
-            return res.isSucess;
+        
         }
 
-        private bool AddEmployee()
+        private void AddEmployee()
         {
 
             Employee emp = new Employee();
@@ -258,11 +258,11 @@ namespace ppm__console
             {
                 Console.WriteLine(res.status);
             }
-            return res.isSucess;
+           
         }
 
 
-        private bool AddProject()
+        private  void AddProject()
         {
             Project project = new Project();
             Console.WriteLine("Enter project Id");
@@ -276,7 +276,7 @@ namespace ppm__console
             Console.WriteLine("Enter project Budget");
             project.Budget = Convert.ToDecimal(Console.ReadLine());
 
-            projectmanager p = new projectmanager();
+            Projectmanager p = new Projectmanager();
             var res = p.AddProject(project);
 
             if (!res.isSucess)
@@ -289,7 +289,7 @@ namespace ppm__console
                 Console.WriteLine(res.status);
 
             }
-            return res.isSucess;
+           
         }
     }
 }

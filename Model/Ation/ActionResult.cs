@@ -13,6 +13,6 @@ namespace Model.Ation
     }
     public class DataResult<T>: ActionResult
     {
-        public IEnumerable<T> Results;
+        public IEnumerable<T> Results { get; set; }
     }
 }

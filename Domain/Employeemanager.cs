@@ -10,11 +10,10 @@ namespace Domain
 {
     public class Employeemanager
     {
-        private static List<Employee> _employeeList;
-        static Employeemanager()
-        {
-            _employeeList = new List<Employee>();
-        }
+        private static List<Employee> _employeeList = new List<Employee>();
+
+        public string Name { get; set; }
+
         public ActionResult AddEmployee(Employee emp)
         {
             ActionResult result = new ActionResult() { isSucess = true };
