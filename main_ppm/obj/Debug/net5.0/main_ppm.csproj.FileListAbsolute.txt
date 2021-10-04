@@ -1,3 +1,7 @@
+D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.GeneratedMSBuildEditorConfig.editorconfig
+D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.AssemblyInfoInputs.cache
+D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.AssemblyInfo.cs
+D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.csproj.CoreCompileInputs.cache
 D:\ppm\ppm\main_ppm\bin\Debug\net5.0\main_ppm.exe
 D:\ppm\ppm\main_ppm\bin\Debug\net5.0\main_ppm.deps.json
 D:\ppm\ppm\main_ppm\bin\Debug\net5.0\main_ppm.runtimeconfig.json
@@ -12,10 +16,6 @@ D:\ppm\ppm\main_ppm\bin\Debug\net5.0\Model.pdb
 D:\ppm\ppm\main_ppm\bin\Debug\net5.0\ppm- console.pdb
 D:\ppm\ppm\main_ppm\bin\Debug\net5.0\Domain.pdb
 D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.csproj.AssemblyReference.cache
-D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.GeneratedMSBuildEditorConfig.editorconfig
-D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.AssemblyInfoInputs.cache
-D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.AssemblyInfo.cs
-D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.csproj.CoreCompileInputs.cache
 D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.csproj.CopyComplete
 D:\ppm\ppm\main_ppm\obj\Debug\net5.0\main_ppm.dll
 D:\ppm\ppm\main_ppm\obj\Debug\net5.0\ref\main_ppm.dll

@@ -8,11 +8,44 @@ namespace Domain
 {
     public class Projectmanager
     {
-       
-        private static List<Project> _projectList = new List<Project>();
-        
 
-       
+        private static List<Project> _projectList = new List<Project>();
+        public void AddProject()
+        {
+            Project project = new Project();
+            try
+            {
+
+
+                Console.WriteLine("Enter project Id");
+                project.id = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter project Name");
+                project.Name = Convert.ToString(Console.ReadLine());
+                Console.WriteLine("Enter project StartDate");
+                project.StartDate = Convert.ToDateTime(Console.ReadLine());
+                Console.WriteLine("Enter project EndDate");
+                project.EndDate = Convert.ToDateTime(Console.ReadLine());
+                Console.WriteLine("Enter project Budget");
+                project.Budget = Convert.ToDecimal(Console.ReadLine());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error occured" + e.ToString());
+
+            }
+
+            var resultEmp = AddProject(project);
+            if (!resultEmp.isSucess)
+            {
+                Console.WriteLine("Project failed to Add");
+                Console.WriteLine(resultEmp.status);
+            }
+            else
+            {
+                Console.WriteLine(resultEmp.status);
+            }
+        }
+
         public ActionResult AddProject(Project pro)
         {
             ActionResult result = new ActionResult() { isSucess = true };
@@ -43,8 +76,125 @@ namespace Domain
             }
             return data;
         }
+            public void DeleteProjectById()
+            {
+                
+           
+            Console.WriteLine("Choose Project From Below Project List: Project ID:Project Name");
+                var resPro = GetprojectInfo();
+                if (resPro.isSucess)
+                {
+                    foreach (Project res in resPro.Results)
+                    {
+                        Console.WriteLine(res.id + " : " + res.Name);
+                    }
+                }
+                else
+                {
+                Console.WriteLine(resPro.status);
+                }
+                Console.Write("Enter The project Id wchich u want delete ");
+                int id = Convert.ToInt32(Console.ReadLine());
+                var result = RemoveProject(id);
+                if(!result.isSucess)
+                
+                {
+                Console.WriteLine("project not deleted");
+                    Console.WriteLine(result.status);
+                }
+                else
+                {
+                    Console.WriteLine(result.status);
+                }
+            }
+        public void AddEmployeeToProject()
+        {
+            Employeemanager m1 = new Employeemanager();
+            Employee employee = new Employee();
+            Console.WriteLine("Choose Project From Below Project List: Project ID:Project Name");
+            var resPro = GetprojectInfo();
+            if (resPro.isSucess)
+            {
+                foreach (Project result in resPro.Results)
+                {
+                    Console.WriteLine(result.id + " : " + result.Name);
+                }
+            }
+            else
+            {
+                Console.WriteLine(resPro.status);
+            }
+            Console.Write("Provide the project Id: ");
+            int projectId = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Below is the Employee ID and respective Name to choose:");
+            var res = m1.GetEmployeeInfo();
+            if (res.isSucess)
+            {
+                foreach (Employee e in res.Results)
+                {
+                    Console.WriteLine(e.Id + " : " + e.Name);
+                }
+            }
+            else
+            {
+                Console.WriteLine(res.status);
+            }
+            Console.Write("Enter the Id of the employee: ");
+            employee.Id = Convert.ToInt32(Console.ReadLine());
+            var valid = m1.isvalidEmp(employee);
+            if (valid.isSucess)
+            {
 
-        public ActionResult AddEmployeetoProject(Employee employee, int id)
+
+                var obj = m1.GetEmployeetoRole(employee);
+                employee.RoleName = obj.RoleName;
+                employee.Name = obj.Name;
+                var result = AddEmployeetoProject(employee, projectId);
+
+
+                if (!result.isSucess)
+                {
+                    Console.WriteLine("Failed to Add Employee into project");
+                    Console.WriteLine(result.status);
+                }
+                else
+                {
+                    Console.WriteLine(result.status);
+                }
+            }
+            else
+            {
+                Console.WriteLine(valid.status);
+            }
+        }
+        public static ActionResult RemoveProject(int id)
+            {
+                Project project = new Project();
+               ActionResult  result = new ActionResult() { isSucess = true };
+                try
+                {
+                    if (_projectList.Exists(p => p.id == id))
+                    {
+                        var itemToRemove = _projectList.Single(s => s.id == id);
+                        _projectList.Remove(itemToRemove);
+                        result.status = "Project is Deleted Successfully " + project.id;
+                    }
+                    else
+                    {
+                        result.isSucess = false;
+                        result.status = "Project Id is not in the List!" + id;
+                    }
+                }
+                catch (Exception e)
+                {
+                   result.isSucess = false;
+                    result.status = "Exception Occured : " + e.ToString();
+                }
+                return result;
+            }
+
+
+            public ActionResult AddEmployeetoProject(Employee employee, int id)
         {
             ActionResult result = new ActionResult() { isSucess = true };
             try
