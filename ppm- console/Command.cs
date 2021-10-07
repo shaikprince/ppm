@@ -12,7 +12,7 @@ namespace ppm__console
             Console.WriteLine("following operation");
             Console.WriteLine("1.Project Module");
             Console.WriteLine("2.Employee Module");
-            Console.WriteLine("3.Role Module");
+            Console.WriteLine("3.Role Module"); 
             Console.WriteLine("4.Quit");
             int i = 0;
             while (true)
@@ -61,7 +61,7 @@ namespace ppm__console
             {
                 try
                 {
-                    Console.WriteLine("Choose Your Option from 1 to 5: ");
+                    Console.WriteLine("Choose Your Option from 1 to 6: ");
                     j = Convert.ToInt32(Console.ReadLine());
                     Projectmanager v2 = new Projectmanager();
                     switch (j)
@@ -71,7 +71,7 @@ namespace ppm__console
                             break;
                         case 2:
                             Console.WriteLine("Project Details: ");
-                            var ResPro = v2.GetprojectInfo();
+                            var ResPro = v2.ListAll();
                             if (ResPro.isSucess)
                             {
                                 foreach (Project result1 in ResPro.Results)
@@ -89,7 +89,7 @@ namespace ppm__console
                             Console.WriteLine("Enter project id which u want to display");
                             int n1 = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine("Project Details:");
-                            var ResPro1 = v2.GetprojectInfo();
+                            var ResPro1 = v2.ListAll();
                             if (ResPro1.isSucess)
                             {
                                 foreach (Project result1 in ResPro1.Results)
@@ -151,7 +151,7 @@ namespace ppm__console
                             break;
                         case 2:
                             Console.WriteLine("Employee Details: ");
-                            var ResEmp = e1.GetEmployeeInfo();
+                            var ResEmp = e1.ListAll();
                             if (ResEmp.isSucess)
                             {
                                 foreach (Employee e2 in ResEmp.Results)
@@ -170,7 +170,7 @@ namespace ppm__console
                             Console.WriteLine("Enter Employee id which u want to display");
                             int E1 = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine("Employee Details: ");
-                            var ResEmp1 = e1.GetEmployeeInfo();
+                            var ResEmp1 = e1.ListAll();
                             if (ResEmp1.isSucess)
                             {
                                 foreach (Employee e2 in ResEmp1.Results)
@@ -226,7 +226,7 @@ namespace ppm__console
                             break;
                         case 2:
                             Console.WriteLine("Role Details: ");
-                            var Resrole = m3.GetRoleInfo();
+                            var Resrole = m3.ListAll();
                             if (Resrole.isSucess)
                             {
                                 foreach (Role e2 in Resrole.Results)
@@ -245,7 +245,7 @@ namespace ppm__console
                             Console.WriteLine("Enter project id which u want to display");
                             int n1 = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine("Project Details:");
-                            var Resrole1 = m3.GetRoleInfo();
+                            var Resrole1 = m3.ListAll();
                             if (Resrole1.isSucess)
                             {
                                 foreach (Role e2 in Resrole1.Results)

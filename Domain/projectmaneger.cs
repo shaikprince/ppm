@@ -6,7 +6,7 @@ using Model.Ation;
 
 namespace Domain
 {
-    public class Projectmanager
+    public class Projectmanager:ioperation<Project>
     {
 
         private static List<Project> _projectList = new List<Project>();
@@ -34,7 +34,7 @@ namespace Domain
 
             }
 
-            var resultEmp = AddProject(project);
+            var resultEmp = Add(project);
             if (!resultEmp.isSucess)
             {
                 Console.WriteLine("Project failed to Add");
@@ -46,7 +46,7 @@ namespace Domain
             }
         }
 
-        public ActionResult AddProject(Project pro)
+        public ActionResult Add(Project pro)
         {
             ActionResult result = new ActionResult() { isSucess = true };
             try
@@ -62,7 +62,7 @@ namespace Domain
             return result;
         }
 
-        public DataResult<Project> GetprojectInfo()
+        public DataResult<Project> ListAll()
         {
             DataResult<Project> data = new DataResult<Project> { isSucess = true };
             if(_projectList.Count>0)
@@ -81,7 +81,7 @@ namespace Domain
                 
            
             Console.WriteLine("Choose Project From Below Project List: Project ID:Project Name");
-                var resPro = GetprojectInfo();
+                var resPro = ListAll();
                 if (resPro.isSucess)
                 {
                     foreach (Project res in resPro.Results)
@@ -95,7 +95,7 @@ namespace Domain
                 }
                 Console.Write("Enter The project Id wchich u want delete ");
                 int id = Convert.ToInt32(Console.ReadLine());
-                var result = RemoveProject(id);
+                var result = Remove(id);
                 if(!result.isSucess)
                 
                 {
@@ -112,7 +112,7 @@ namespace Domain
             Employeemanager m1 = new Employeemanager();
             Employee employee = new Employee();
             Console.WriteLine("Choose Project From Below Project List: Project ID:Project Name");
-            var resPro = GetprojectInfo();
+            var resPro = ListAll();
             if (resPro.isSucess)
             {
                 foreach (Project result in resPro.Results)
@@ -127,7 +127,7 @@ namespace Domain
             Console.Write("Provide the project Id: ");
             int projectId = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Below is the Employee ID and respective Name to choose:");
-            var res = m1.GetEmployeeInfo();
+            var res = m1.ListAll();
             if (res.isSucess)
             {
                 foreach (Employee e in res.Results)
@@ -167,7 +167,7 @@ namespace Domain
                 Console.WriteLine(valid.status);
             }
         }
-        public static ActionResult RemoveProject(int id)
+        public  ActionResult Remove(int id)
             {
                 Project project = new Project();
                ActionResult  result = new ActionResult() { isSucess = true };
@@ -192,9 +192,39 @@ namespace Domain
                 }
                 return result;
             }
+        public ActionResult isEmployeePresentinProject(int Id)
+        {
+            ActionResult result = new ActionResult() { isSucess = true };
+            uint count = 0;
+            if (_projectList.Count > 0)
+            {
+                foreach (Project Pro in _projectList)
+                {
+                    if (Pro.Emplist.Exists(p => p.Id == Id))
+                    {
+                        count++;
+                    }
+                }
+                if (count > 0)
+                {
+                    result.status = "Employee is present!";
+                }
+                else
+                {
+                    result.isSucess = false;
+                    result.status = "Employee is not present in any project!";
+                }
+            }
+            else
+            {
+                result.isSucess = false;
+            }
+            return result;
+
+        }
 
 
-            public ActionResult AddEmployeetoProject(Employee employee, int id)
+        public ActionResult AddEmployeetoProject(Employee employee, int id)
         {
             ActionResult result = new ActionResult() { isSucess = true };
             try

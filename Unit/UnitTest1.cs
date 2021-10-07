@@ -18,7 +18,7 @@ namespace Unit
             pp.StartDate = Convert.ToDateTime("1-2-2021");
             pp.EndDate = Convert.ToDateTime("2-2-2021");
             pp.Budget = 2000;
-            var v2 = pro.AddProject(pp);
+            var v2 = pro.Add(pp);
             if (v2.isSucess)
             {
                 Assert.Pass();
@@ -38,7 +38,7 @@ namespace Unit
             ee.Name = "Prince";
             ee.Contact = 1245799326;
             ee.Email = "shaikprince@";
-            var v2 = emp.AddEmployee(ee);
+            var v2 = emp.Add(ee);
             if (v2.isSucess)
             {
                 Assert.Pass();
@@ -56,7 +56,7 @@ namespace Unit
             Role rr = new Role();
             rr.RoleId = 1;
             rr.RoleName = "Hr";
-            var v2 = role.AddRole(rr);
+            var v2 = role.Add(rr);
             if (v2.isSucess)
             {
                 Assert.Pass();

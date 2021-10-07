@@ -6,7 +6,7 @@ using Model.Ation;
 
 namespace Domain
 {
-    public class Rolemanager
+    public class Rolemanager:ioperation<Role>
     {
         private static List<Role> _roleList = new List<Role>();
         public void AddRole()
@@ -25,7 +25,7 @@ namespace Domain
             {
                 Console.WriteLine("error occured" + e.ToString());
             }
-            var resultRole = AddRole(role);
+            var resultRole = Add(role);
             if (!resultRole.isSucess)
             {
                 Console.WriteLine("Role failed to Add");
@@ -36,7 +36,7 @@ namespace Domain
                 Console.WriteLine(resultRole.status);
             }
         }
-        public ActionResult AddRole(Role role)
+        public ActionResult Add(Role role)
         {
             ActionResult result = new ActionResult() { isSucess = true };
             try
@@ -52,7 +52,7 @@ namespace Domain
             return result;
         }
 
-        public DataResult<Role> GetRoleInfo()
+        public DataResult<Role> ListAll()
         {
             DataResult<Role> data = new DataResult<Role> { isSucess = true };
             if (_roleList.Count > 0)
@@ -71,7 +71,7 @@ namespace Domain
             
 
             Console.WriteLine("Choose Role From Below Role List: Role ID:Role Name");
-            var resRole = GetRoleInfo();
+            var resRole = ListAll();
             if (resRole.isSucess)
             {
                 foreach (Role e2 in resRole.Results)
@@ -85,7 +85,7 @@ namespace Domain
             }
             Console.Write("Enter The Role Id wchich u want delete ");
             int id = Convert.ToInt32(Console.ReadLine());
-            var result = RemoveRole(id);
+            var result = Remove(id);
             if (!result.isSucess)
             {
                 Console.WriteLine("Role not deleted");
@@ -97,7 +97,7 @@ namespace Domain
                 Console.WriteLine(result.status);
             }
         }
-        public static ActionResult RemoveRole(int id)
+        public  ActionResult Remove(int id)
         {
             Role role = new Role();
             ActionResult result = new ActionResult() { isSucess = true };

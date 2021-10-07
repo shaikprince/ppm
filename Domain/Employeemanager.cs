@@ -8,7 +8,7 @@ using Model.Ation;
 
 namespace Domain
 {
-    public class Employeemanager
+    public class Employeemanager : ioperation<Employee>
     {
 
         private static List<Employee> _employeeList = new List<Employee>();
@@ -36,7 +36,7 @@ namespace Domain
                 Console.WriteLine("error occured" + e.ToString());
             }
             
-            var resultEmp = AddEmployee(Emp);
+            var resultEmp = Add(Emp);
             if (!resultEmp.isSucess)
             {
                 Console.WriteLine("Employee failed to Add");
@@ -50,7 +50,7 @@ namespace Domain
 
 
 
-        public ActionResult AddEmployee(Employee emp)
+        public ActionResult Add(Employee emp)
         {
             ActionResult result = new ActionResult() { isSucess = true };
             try
@@ -65,8 +65,12 @@ namespace Domain
             }
             return result;
         }
-
-        public DataResult<Employee> GetEmployeeInfo()
+        //public interface IOperation<T>
+        //Add Result Add(T t)
+        //ListAll DataResult<T> ListAll()
+        //ListById
+        //Delete Result Remove(int id)
+        public DataResult<Employee> ListAll()
         {
             DataResult<Employee> data = new DataResult<Employee> { isSucess = true };
             if (_employeeList.Count > 0)
@@ -82,35 +86,43 @@ namespace Domain
         }
         public void DeleteEmployeeById()
         {
-            
-
-            Console.WriteLine("Choose Employee From Below Employee List: Employee ID:Employee Name");
-            var resEmp = GetEmployeeInfo();
-            if (resEmp.isSucess)
+            Console.WriteLine("Choose Employee From Below Employee List: Employee ID:Employee First Name");
+            var resPro = ListAll();
+            if (resPro.isSucess)
             {
-                foreach (Employee e2 in resEmp.Results)
+                foreach (Employee res in resPro.Results)
                 {
-                    Console.WriteLine(e2.Id + " : " + e2.Name);
+                    Console.WriteLine(res.Id + " : " + res.Name);
                 }
             }
             else
             {
-                Console.WriteLine(resEmp.status);
+                Console.WriteLine(resPro.status);
             }
             Console.Write("Enter The Employee Id wchich u want delete ");
-            int id = Convert.ToInt32(Console.ReadLine());
-            var result = RemoveEmployee(id);
-            if (!result.isSucess)
+            int e2 = Convert.ToInt32(Console.ReadLine());
+            Projectmanager p1 = new Projectmanager();
+            var result1 = p1.isEmployeePresentinProject(e2);
+            if (!result1.isSucess)
             {
-                Console.WriteLine("Employee not deleted");
-                Console.WriteLine(result.status);
+                var result = Remove(e2);
+                if (!result.isSucess)
+                {
+                    Console.WriteLine("Employee is not deleted");
+                    Console.WriteLine(result.status);
+                }
+                else
+                {
+                    Console.WriteLine(result.status);
+                }
             }
             else
             {
-                Console.WriteLine(result.status);
+                Console.WriteLine(result1.status);
             }
         }
-        public static ActionResult RemoveEmployee(int id)
+       
+        public ActionResult Remove(int id)
         {
             Employee Emp = new Employee();
             ActionResult result = new ActionResult() { isSucess = true };
