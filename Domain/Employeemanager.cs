@@ -11,7 +11,7 @@ namespace Domain
     public class Employeemanager : ioperation<Employee>
     {
 
-        private static List<Employee> _employeeList = new List<Employee>();
+        public static List<Employee> _employeeList = new List<Employee>();
 
         public void AddEmployee()
         {

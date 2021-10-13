@@ -9,7 +9,7 @@ namespace Domain
     public class Projectmanager:ioperation<Project>
     {
 
-        private static List<Project> _projectList = new List<Project>();
+        public static List<Project> _projectList = new List<Project>();
         public void AddProject()
         {
             Project project = new Project();

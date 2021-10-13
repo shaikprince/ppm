@@ -8,7 +8,7 @@ namespace Domain
 {
     public class Rolemanager:ioperation<Role>
     {
-        private static List<Role> _roleList = new List<Role>();
+        public static List<Role> _roleList = new List<Role>();
         public void AddRole()
         {
             Role role = new Role();

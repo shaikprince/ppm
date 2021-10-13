@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
 using Domain;
 using Model;
+
+
 namespace ppm__console
 {
     public class Command
@@ -8,12 +13,13 @@ namespace ppm__console
         public void startprogram()
 
         {
-          
+
             Console.WriteLine("following operation");
             Console.WriteLine("1.Project Module");
             Console.WriteLine("2.Employee Module");
-            Console.WriteLine("3.Role Module"); 
-            Console.WriteLine("4.Quit");
+            Console.WriteLine("3.Role Module");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5.Quit");
             int i = 0;
             while (true)
             {
@@ -32,12 +38,16 @@ namespace ppm__console
                         case 3:
                             RoleModule();
                             break;
+                        case 4:
+                          Save p1 = new Save();
+                            p1.save();
+                            break;
                         default:
                             Console.WriteLine("Option is not in the list!");
                             break;
                     }
                 }
-                catch (Exception)
+                catch (Exception) 
                 {
                     Console.WriteLine("oops! Error Occured! Try Again");
                     startprogram();
@@ -46,6 +56,8 @@ namespace ppm__console
 
             }
         }
+
+       
 
         public void ProjectModule()
         {
@@ -177,7 +189,7 @@ namespace ppm__console
                                 {
                                     if (e2.Id == E1)
                                     {
-                                        Console.WriteLine("Employee id: " + e2.Id + "\nEmployee_Name Name: " + e2.Name + "\nContact: " + e2.Contact + "\nEmail :" + e2.Email );
+                                        Console.WriteLine("Employee id: " + e2.Id + "\nEmployee_Name Name: " + e2.Name + "\nContact: " + e2.Contact + "\nEmail :" + e2.Email);
                                     }
                                 }
                             }
@@ -280,5 +292,6 @@ namespace ppm__console
 
             }
         }
+       
     }
 }
