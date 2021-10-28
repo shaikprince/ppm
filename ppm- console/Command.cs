@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Xml.Serialization;
 using Domain;
 using Model;
@@ -8,9 +9,9 @@ using Model;
 
 namespace ppm__console
 {
-    public class Command
+    public  class Command
     {
-        public void startprogram()
+        public static void startprogram()
 
         {
 
@@ -39,8 +40,7 @@ namespace ppm__console
                             RoleModule();
                             break;
                         case 4:
-                          Save p1 = new Save();
-                            p1.save();
+                         save();
                             break;
                         default:
                             Console.WriteLine("Option is not in the list!");
@@ -59,7 +59,7 @@ namespace ppm__console
 
        
 
-        public void ProjectModule()
+        public static void ProjectModule()
         {
             Console.WriteLine("Choose the option you want to select:");
             Console.WriteLine("Press 1: Add Project");
@@ -140,7 +140,7 @@ namespace ppm__console
             }
         }
 
-        public void EmployeeModule()
+        public static void EmployeeModule()
         {
             Console.WriteLine("Choose the Option you want to select:");
             Console.WriteLine("Press 1: Add Employee");
@@ -215,7 +215,7 @@ namespace ppm__console
                 }
             }
         }
-        public void RoleModule()
+        public  static void RoleModule()
         {
             Console.WriteLine("Choose the Option you want to select:");
             Console.WriteLine("Press 1: Add Role");
@@ -292,6 +292,84 @@ namespace ppm__console
 
             }
         }
-       
+        public static void save()
+        {
+            try
+            {
+                Console.WriteLine("Press 1: Save as XML file");
+                Console.WriteLine("Press 2: Save as TXT File");
+                Console.WriteLine("Press 3: Save as DB-Ado");
+                Console.WriteLine("Press 4: Save as DB-EF");
+                Console.Write("Please Choose the Save Method: ");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                Employeemanager employeemanager = new Employeemanager();
+                Projectmanager projectmanager = new Projectmanager();
+                Rolemanager rolemanager = new Rolemanager();
+                switch (choice)
+                {
+
+
+
+                    case 1:
+                        Console.WriteLine("---SAVE AS XML FILE---");
+
+
+
+                        var employeeSerialize = employeemanager.ToXmlSerialization("Employee.xml");
+                        var projectSerialize = projectmanager.ToXmlSerialization("Project.xml");
+                        var roleSerialize = rolemanager.ToXmlSerialization("Role.xml");
+
+
+
+                        if (employeeSerialize.isSucess || projectSerialize.isSucess || roleSerialize.isSucess)
+                        {
+                            Console.WriteLine("Save Data Sucessfully!");
+                            Console.WriteLine(employeeSerialize.status + "\n" + projectSerialize.status + "\n" + roleSerialize.status);
+                        }
+                        else
+                        {
+                            Console.WriteLine(employeeSerialize.status + "\n" + projectSerialize.status + "\n" + roleSerialize.status);
+                        }
+                        break;
+                    case 2:
+                        Console.WriteLine("---SAVE AS TEST FILE---");
+                        var saveRoleToText = rolemanager.ToTxtFile("role.txt");
+                        var saveEmployeeToText = employeemanager.ToTxtFile("SaveEmployee.txt");
+                        var saveProjectToText = projectmanager.ToTxtFile("SaveProject.txt");
+                        if (saveRoleToText.isSucess || saveEmployeeToText.isSucess || saveProjectToText.isSucess)
+                        {
+                            Console.WriteLine("Save Data To TEXT File Sucessfully!");
+                            Console.WriteLine(saveRoleToText.status + "\n" + saveProjectToText.status + "\n" + saveEmployeeToText.status);
+                        }
+                        else
+                        {
+                            Console.WriteLine(saveRoleToText.status + "\n" + saveProjectToText.status + "\n" + saveEmployeeToText.status);
+                        }
+                        break;
+                    case 3:
+                        Console.WriteLine("---Save AS DB-ADO METHOD---");
+                        DBModule dB = new DBModule();
+                        dB.DB_ADO();
+                        break;
+                    case 4:
+                        Console.WriteLine("---SAVE AS DB-EF METHOD---");
+                        DBModule dB1 = new DBModule();
+                        dB1.DB_EF();
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Oops, Error Occoured at Save State!");
+                Console.WriteLine("-----------------------------------------------------");
+                startprogram();
+
+            }
+
+        }
+
     }
 }
+       
+    
+

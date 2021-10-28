@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Model;
+using System.Data.SqlClient;
+using System.Data;
 using Model.Ation;
 
 namespace Domain
 {
-    public class Employeemanager : ioperation<Employee>
+    public  class Employeemanager : ioperation<Employee>
     {
 
         public static List<Employee> _employeeList = new List<Employee>();
+        
 
         public void AddEmployee()
         {
             Employee Emp = new Employee();
             try
-            {
+            { 
                
 
                 Console.WriteLine("Enter Employee Id");
@@ -159,9 +162,178 @@ namespace Domain
             emp.Name = _employeeList.Single(e => e.Id == employeeId.Id).Name;
             return emp;
         }
+        public ActionResult ToXmlSerialization(string fileName)
+        {
+           ActionResult  actionResult = new ActionResult() { isSucess = true };
+            try
+            {
+                if (_employeeList.Count > 0)
+                {
+                    //string filePath = System.IO.Path.Combine(System.Web.HttpContext.Current.Server.MapPath("F:\\PPM\\Model"), "AppData", fileName)
+                    //var filePath = System.IO.File.Create(Environment.GetFolderPath(Environment.SpecialFolder.MyMusic) + fileName)
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Employee>));
+                    using (TextWriter tw = new StreamWriter(fileName))
+                    {
+                        serializer.Serialize(tw, _employeeList);
+                        tw.Close();
+                    }
 
+
+
+                }
+                else
+                {
+                    actionResult.isSucess = false;
+                    actionResult.status = "Employee List is Empty!";
+                }
+            }
+            catch (Exception e)
+            {
+                actionResult.isSucess = false;
+                actionResult.status = "Error Occoured!" + e.Message;
+            }
+            return actionResult;
+        }
+       
+        public ActionResult ToTxtFile(string fileName)
+        {
+            ActionResult actionResult = new ActionResult() { isSucess = true };
+            try
+            {
+                if (_employeeList.Count > 0)
+                {
+                    using (TextWriter sw = new StreamWriter(fileName))
+                    {
+                        foreach (Employee e in _employeeList)
+                        {
+                            sw.WriteLine("Employee Id: " + e.Id + "\nEmployee Name: " + e.Name + "\nContact Number : " + e.Contact + "\nEmail :"
+                            + e.Email + "\nRole Id: " + e.Id);
+                            sw.WriteLine("--------------------------------------------------------------------------------------");
+                            actionResult.status = "Employee Is Saved in The Text File!";
+                        }
+                    }
+                }
+                else
+                {
+                    actionResult.isSucess = false;
+                    actionResult.status = "Employee list is empty!";
+                }
+            }
+            catch (Exception e)
+            {
+                actionResult.isSucess = false;
+                actionResult.status = "Error Occoured" + "\n" + e.Message;
+            }
+
+
+
+            return actionResult;
+        }
+        public ActionResult ToAdoDB()
+        {
+            ActionResult actionResult = new ActionResult() { isSucess = true };
+            string conn = "Server=(localdb)\\MSSQLLocalDB; Database=PPM;Integrated security=true;TrustServerCertificate=true";
+            SqlConnection myConn = new SqlConnection(conn);
+            string str = "DROP TABLE IF EXISTS employee";
+            try
+            {
+                myConn.Open();
+                using (SqlCommand command = new SqlCommand(str, myConn))
+                {
+                    command.ExecuteNonQuery();
+                    actionResult.status = "Old Data of Employee Dropped Successfully!";
+                }
+            }
+            catch (Exception e)
+            {
+                actionResult.isSucess = false;
+                actionResult.status = e.Message;
+            }
+            finally
+            {
+                if (myConn.State == ConnectionState.Open)
+                {
+                    myConn.Close();
+                }
+            }
+            if (actionResult.isSucess)
+            {
+                try
+                {
+                    myConn.Open();
+                    using (SqlCommand command = new SqlCommand("CREATE TABLE employee (Id int,EmployeeName varchar(50), DOB datetime, Contact bigint, RoleName varchar(50));", myConn))
+                    {
+                        command.ExecuteNonQuery();
+
+
+
+                        foreach (Employee employee in _employeeList)
+                        {
+                            int id = (int)employee.Id;
+                            long contact = (long)employee.Contact;
+                            string insertQ = "INSERT INTO employee values(@Id,@EmployeeName,@DOB,@Contact,@RoleName)";
+                           SqlCommand command1 = new SqlCommand(insertQ, myConn);
+                            command1.Parameters.AddWithValue("@Id", id);
+                            command1.Parameters.AddWithValue("@EmployeeName", employee.Name);
+                            command1.Parameters.AddWithValue("@Contact", contact);
+                            command1.Parameters.AddWithValue("@Email", employee.Email);
+                            command1.Parameters.AddWithValue("@RoleId", employee.Id);
+                            command1.ExecuteNonQuery();
+                        }
+                        actionResult.status = actionResult.status + "\n" + "Table employee Added SuccessFully!";
+                    }
+
+
+
+                }
+                catch (Exception e)
+                {
+                    actionResult.isSucess = false;
+                    actionResult.status = e.Message;
+                }
+                finally
+                {
+                    if (myConn.State == ConnectionState.Open)
+                    {
+                        myConn.Close();
+                    }
+                }
+            }
+            return actionResult;
+        }
+       
+public ActionResult ToEFDB()
+        {
+            ActionResult actionResult = new ActionResult() { isSucess = true };
+            try
+            {
+                using (var db = new Context())
+                {
+                    foreach (Employee employee in _employeeList)
+                    {
+                        db.Employees.Add(employee);
+                        db.SaveChanges();
+                    }
+                }
+                actionResult.status = "Employee Saved to Database Successfully";
+            }
+            catch (Exception e)
+            {
+                actionResult.isSucess = true;
+                actionResult.status = e.Message;
+            }
+            return actionResult;
+        }
     }
-    }
+
+}
+
+
+
+
+
+    
+    
 
 
 

@@ -9,8 +9,7 @@ namespace main_ppm
     {
         public static void Main(string[] args)
         {
-            Command co = new Command();
-            co.startprogram();
+           Command.startprogram();
         }
     }
 }
