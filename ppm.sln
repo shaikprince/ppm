@@ -13,7 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ppm- console", "ppm- consol
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "main_ppm", "main_ppm\main_ppm.csproj", "{13157342-FC71-43C6-8D47-355BC4FEE663}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit", "Unit\Unit.csproj", "{FAB3AD62-7596-42A1-88CA-83615A3BD26F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unit", "Unit\Unit.csproj", "{FAB3AD62-7596-42A1-88CA-83615A3BD26F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "Web\WebAPI.csproj", "{FFAC2EB8-690F-40C4-A4FD-828BF40E3781}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebMVC", "WebMVC\WebMVC.csproj", "{4EB615E0-0533-4EFE-8B2B-A56C10379BF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{6D754D90-AB25-4C54-A7E7-E9EDA1B87DC5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +47,18 @@ Global
 		{FAB3AD62-7596-42A1-88CA-83615A3BD26F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAB3AD62-7596-42A1-88CA-83615A3BD26F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAB3AD62-7596-42A1-88CA-83615A3BD26F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFAC2EB8-690F-40C4-A4FD-828BF40E3781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFAC2EB8-690F-40C4-A4FD-828BF40E3781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFAC2EB8-690F-40C4-A4FD-828BF40E3781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFAC2EB8-690F-40C4-A4FD-828BF40E3781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB615E0-0533-4EFE-8B2B-A56C10379BF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB615E0-0533-4EFE-8B2B-A56C10379BF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB615E0-0533-4EFE-8B2B-A56C10379BF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB615E0-0533-4EFE-8B2B-A56C10379BF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D754D90-AB25-4C54-A7E7-E9EDA1B87DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D754D90-AB25-4C54-A7E7-E9EDA1B87DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D754D90-AB25-4C54-A7E7-E9EDA1B87DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D754D90-AB25-4C54-A7E7-E9EDA1B87DC5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

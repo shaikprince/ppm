@@ -1,0 +1,9 @@
+D:\ppm\ppm\WebMVC\obj\Debug\net5.0\WebMVC.csproj.AssemblyReference.cache
+D:\ppm\ppm\WebMVC\obj\Debug\net5.0\WebMVC.GeneratedMSBuildEditorConfig.editorconfig
+D:\ppm\ppm\WebMVC\obj\Debug\net5.0\WebMVC.AssemblyInfoInputs.cache
+D:\ppm\ppm\WebMVC\obj\Debug\net5.0\WebMVC.AssemblyInfo.cs
+D:\ppm\ppm\WebMVC\obj\Debug\net5.0\WebMVC.csproj.CoreCompileInputs.cache
+D:\ppm\ppm\WebMVC\obj\Debug\net5.0\WebMVC.MvcApplicationPartsAssemblyInfo.cache
+D:\ppm\ppm\WebMVC\obj\Debug\net5.0\WebMVC.RazorAssemblyInfo.cache
+D:\ppm\ppm\WebMVC\obj\Debug\net5.0\WebMVC.RazorAssemblyInfo.cs
+D:\ppm\ppm\WebMVC\obj\Debug\net5.0\WebMVC.MvcApplicationPartsAssemblyInfo.cs

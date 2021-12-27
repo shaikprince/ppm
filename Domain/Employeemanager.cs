@@ -10,48 +10,11 @@ using Model.Ation;
 
 namespace Domain
 {
-    public  class Employeemanager : ioperation<Employee>
+    public  class Employeemanager : IOperation<Employee>
     {
 
-        public static List<Employee> _employeeList = new List<Employee>();
-        
-
-        public void AddEmployee()
-        {
-            Employee Emp = new Employee();
-            try
-            { 
-               
-
-                Console.WriteLine("Enter Employee Id");
-                Emp.Id = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Employee Name");
-               Emp.Name = Convert.ToString(Console.ReadLine());
-                Console.WriteLine("Enter Employee Contact ");
-               Emp.Contact=Convert.ToInt64(Console.ReadLine());
-                Console.WriteLine("Enter employee email");
-                Emp.Email = Console.ReadLine();
-              
-               
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error occured" + e.ToString());
-            }
-            
-            var resultEmp = Add(Emp);
-            if (!resultEmp.isSucess)
-            {
-                Console.WriteLine("Employee failed to Add");
-                Console.WriteLine(resultEmp.status);
-            }
-            else
-            {
-                Console.WriteLine(resultEmp.status);
-            }
-        }
-
-
+        private static List<Employee> _employeeList = new List<Employee>();
+       
 
         public ActionResult Add(Employee emp)
         {

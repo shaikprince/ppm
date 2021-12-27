@@ -10,45 +10,11 @@ using Model.Ation;
 
 namespace Domain
 {
-    public class Projectmanager : ioperation<Project>
+    public class Projectmanager : IOperation<Project>
     {
 
-        public static List<Project> _projectList = new List<Project>();
-        public void AddProject()
-        {
-            Project project = new Project();
-            try
-            {
-
-
-                Console.WriteLine("Enter project Id");
-                project.id = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter project Name");
-                project.Name = Convert.ToString(Console.ReadLine());
-                Console.WriteLine("Enter project StartDate");
-                project.StartDate = Convert.ToDateTime(Console.ReadLine());
-                Console.WriteLine("Enter project EndDate");
-                project.EndDate = Convert.ToDateTime(Console.ReadLine());
-                Console.WriteLine("Enter project Budget");
-                project.Budget = Convert.ToDecimal(Console.ReadLine());
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error occured" + e.ToString());
-
-            }
-
-            var resultEmp = Add(project);
-            if (!resultEmp.isSucess)
-            {
-                Console.WriteLine("Project failed to Add");
-                Console.WriteLine(resultEmp.status);
-            }
-            else
-            {
-                Console.WriteLine(resultEmp.status);
-            }
-        }
+        private static List<Project> _projectList = new List<Project>();
+       
 
         public ActionResult Add(Project pro)
         {

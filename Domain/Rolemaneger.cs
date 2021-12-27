@@ -10,36 +10,10 @@ using Model.Ation;
 
 namespace Domain
 {
-    public class Rolemanager:ioperation<Role>
+    public class Rolemanager:IOperation<Role>
     {
-        public static List<Role> _roleList = new List<Role>();
-        public void AddRole()
-        {
-            Role role = new Role();
-            try
-            {
-                
-                Console.WriteLine("Enter Role Id");
-                role.RoleId = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Enter Role Name");
-               role.RoleName = Convert.ToString(Console.ReadLine());
-                
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("error occured" + e.ToString());
-            }
-            var resultRole = Add(role);
-            if (!resultRole.isSucess)
-            {
-                Console.WriteLine("Role failed to Add");
-                Console.WriteLine(resultRole.status);
-            }
-            else
-            {
-                Console.WriteLine(resultRole.status);
-            }
-        }
+        private static List<Role> _roleList = new List<Role>();
+        
         public ActionResult Add(Role role)
         {
             ActionResult result = new ActionResult() { isSucess = true };

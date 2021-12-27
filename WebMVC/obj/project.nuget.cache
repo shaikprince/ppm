@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "LfVPd8AVEWaCPOiUjOCkKwxzEeLwfKyGTlh4C3Q6Qp86F3IGngaXSGTw4KE3lBfYFsJu3cF3l/jaZzN6gu9tYw==",
+  "success": true,
+  "projectFilePath": "D:\\ppm\\ppm\\WebMVC\\WebMVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\EBRAHIM\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\EBRAHIM\\.nuget\\packages\\octopus.client\\11.3.3453\\octopus.client.11.3.3453.nupkg.sha512",
+    "C:\\Users\\EBRAHIM\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

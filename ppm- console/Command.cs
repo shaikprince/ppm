@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Xml.Serialization;
 using Domain;
 using Model;
-
+using Web.Controllers;
 
 namespace ppm__console
 {
@@ -79,7 +79,7 @@ namespace ppm__console
                     switch (j)
                     {
                         case 1:
-                            v2.AddProject();
+                        Command.AddProject();
                             break;
                         case 2:
                             Console.WriteLine("Project Details: ");
@@ -159,7 +159,7 @@ namespace ppm__console
                     switch (j)
                     {
                         case 1:
-                            e1.AddEmployee();
+                            Command.AddEmployee();
                             break;
                         case 2:
                             Console.WriteLine("Employee Details: ");
@@ -234,7 +234,7 @@ namespace ppm__console
                     switch (j)
                     {
                         case 1:
-                            m3.AddRole();
+                            Command.AddRole();
                             break;
                         case 2:
                             Console.WriteLine("Role Details: ");
@@ -367,9 +367,84 @@ namespace ppm__console
             }
 
         }
+        
+        public static void AddRole()
+        {
+            Role role = new Role();
+            try
+            {
+
+                Console.WriteLine("Enter Role Id");
+                role.RoleId = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Role Name");
+                role.RoleName = Convert.ToString(Console.ReadLine());
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error occured" + e.ToString());
+            }
+            RoleController roleController = new();
+            roleController.AddRole(role);
+        }
+        public static void AddProject()
+        {
+            Project project = new Project();
+            try
+            {
+
+
+                Console.WriteLine("Enter project Id");
+                project.id = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter project Name");
+                project.Name = Convert.ToString(Console.ReadLine());
+                Console.WriteLine("Enter project StartDate");
+                project.StartDate = Convert.ToDateTime(Console.ReadLine());
+                Console.WriteLine("Enter project EndDate");
+                project.EndDate = Convert.ToDateTime(Console.ReadLine());
+                Console.WriteLine("Enter project Budget");
+                project.Budget = Convert.ToDecimal(Console.ReadLine());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error occured" + e.ToString());
+
+            }
+            ProjectController projectController = new();
+            projectController.AddProject(project);
+        }
+        public  static void AddEmployee()
+        {
+            Employee Emp = new Employee();
+            try
+            {
+
+
+                Console.WriteLine("Enter Employee Id");
+                Emp.Id = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Employee Name");
+                Emp.Name = Convert.ToString(Console.ReadLine());
+                Console.WriteLine("Enter Employee Contact ");
+                Emp.Contact = Convert.ToInt64(Console.ReadLine());
+                Console.WriteLine("Enter employee email");
+                Emp.Email = Console.ReadLine();
+
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("error occured" + e.ToString());
+            }
+            EmployeeController employeeController = new();
+           employeeController.AddEmployee(Emp);
+
+        }
 
     }
-}
+   
+    }
+
+
        
     
 
